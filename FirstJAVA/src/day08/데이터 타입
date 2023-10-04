@@ -1,0 +1,30 @@
+데이터 타입
+ 1. 기본 타입(primitive type) : 정수(byte, short, int, long), 실수(float, double), 문자(char), 논리(boolean)
+ 	> 기본 타입으로 선언된 변수는 실제 값을 변수 안에 저장
+ 	
+ 2. 참조 타입(reference type) : 배열(Array), 클래스(class), 인터페이스타입(interface)
+	> 참조 타입으로 선언된 변수는 메모리의 주소값을 변수 안에 저장
+	> 즉, 메모리 스택(Stack)영역에 주소값을 저장하고, 내부에서 실제 값은 힙(heap)영역에 저장
+	
+
+public class MainClass {
+	public static noid main(String[] args){
+		int a = 10;					//stack1에 저장
+		int b = 20;					//stack2
+		int c = 30;					//stack3
+		
+		Pen p1;						//stack4				
+		p1 = new Pen();				//heap1 -> stack4에 heap1의 주소 값을 저장
+		
+		Pen p2 = new Pen();			//heap2 -> stack5에 heap2의 주소 값을 저장
+	}
+}
+ new로 만들어지는 것은 heap 메모리에 저정된다. = 주소값이 저장된다. ex) 배열을 그냥 출력하면 주소값이 나온다.
+ 
+ ***참조 타입 String과 객체 동등비교 메서드 equals()
+ 	- 자바의 문자열이 동일하면 String 객체를 공유하도록 되어 있음
+ 	- 그래서 단순히 문자열을 String 변수에 할당한다면 같은 주소값을 갖게 된다.
+ 	
+ 	- 그러나 new 키워드를 사용해서 String 객체를 직접 heap영역에 생성한다면 문자열 내용이 같더라도 다른 주소값을 가지게 되므로 동등, 비동등 연산자(==, !=)의 결과는 false로 나오게 됨.
+ 	- 그래서 동일 String 객체이든 다른 String 객체이든 상관없이 문자열의 내용 값 그 자체를 비교할 때에 equals() 메서드를 사용해야 합니다.
+ 	
