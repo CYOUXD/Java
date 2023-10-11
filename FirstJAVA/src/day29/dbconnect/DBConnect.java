@@ -65,8 +65,6 @@ public class DBConnect {
 			while(rs.next()) {
 				System.out.printf("이름 : %s, 나이 : %d\n",rs.getString("name"), rs.getInt("age"));
 			}
-					
-			
 			
 		} catch (ClassNotFoundException e) {
 			System.out.println("드라이버 로드 실패");
